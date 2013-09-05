@@ -10,3 +10,7 @@ doc/_api
 eggs
 local.cfg
 parts
+.coverage
+.tox/
+coverage-report/
+testreport.xml

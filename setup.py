@@ -25,6 +25,7 @@ setup(
 
     extras_require={
         'test': [
+            'mock',
         ],
     },
 
@@ -44,9 +45,8 @@ setup(
 License :: OSI Approved :: Zope Public License
 Programming Language :: Python
 Programming Language :: Python :: 2
-Programming Language :: Python :: 3
-Programming Language :: Python :: 2.6
 Programming Language :: Python :: 2.7
+Programming Language :: Python :: 3
 Programming Language :: Python :: 3.3
 """[:-1].split('\n'),
     description=__doc__.strip(),
