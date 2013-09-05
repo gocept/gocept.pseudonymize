@@ -1,0 +1,21 @@
+==============================
+Developing gocept.pseudonymize
+==============================
+
+:Author:
+    `gocept <http://gocept.com/>`_ <mail@gocept.com>
+
+:Online documentation:
+    http://pythonhosted.org/gocept.pseudonymize/
+
+:PyPI page:
+    http://pypi.python.org/pypi/gocept.pseudonymize/
+
+:Issues:
+    `report by e-mail <mail@gocept.com>`_
+
+:Source code:
+    https://bitbucket.org/gocept/gocept.pseudonymize/
+
+:Current change log:
+    https://bitbucket.org/gocept/gocept.pseudonymize/raw-file/tip/CHANGES.txt

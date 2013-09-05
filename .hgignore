@@ -1,0 +1,12 @@
+syntax: glob
+
+.installed.cfg
+.mr.developer.cfg
+bin
+build
+develop-eggs
+dist
+doc/_api
+eggs
+local.cfg
+parts
