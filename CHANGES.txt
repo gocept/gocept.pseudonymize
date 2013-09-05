@@ -2,7 +2,7 @@
 Change log for gocept.pseudonymize
 ==================================
 
-0.1 (unreleased)
+0.1 (2013-09-05)
 ================
 
 initial release
