@@ -67,7 +67,7 @@ class PseudoTests(unittest.TestCase):
 
     def test_license_tags(self):
         from gocept.pseudonymize import license_tag as p
-        assert 'Z1Y-TU 113' == self.pseudo('HAL-SW 831', p)
+        assert 'Z1Y-YV 784' == self.pseudo('HAL-AB 123', p)
 
     def test_decimal(self):
         from decimal import Decimal
