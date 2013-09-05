@@ -22,14 +22,14 @@ def text(value, secret, size=None):
 def integer(value, secret, size=None):
     if size is None:
         size = len(str(value))
-    value = text(value, secret, size)
+    value = text(str(value), secret, size)
     result = ''
     for char in value:
         try:
             result += str(int(char))
         except ValueError:
             result += str(ord(char))
-    return result[:size]
+    return int(result[:size])
 
 
 def email(value, secret, size=None):
@@ -39,11 +39,11 @@ def email(value, secret, size=None):
 
 
 def iban(value, secret, size=None):
-    return 'DE%s' % integer(value[2:], secret, len(value))[:20]
+    return 'DE%s' % str(integer(value[2:], secret, len(value)))[:20]
 
 
 def phone(value, secret, size=None):
-    return '0' + integer(value, secret, len(value)-1)
+    return '0%s' % integer(value, secret, len(value)-1)
 
 
 def license_tag(value, secret, size=None):
@@ -57,7 +57,7 @@ def license_tag(value, secret, size=None):
                 subblocks[j] = text(
                     subblock, secret, len(subblock)).upper()
             else:
-                subblocks[j] = integer(subblock, secret, len(subblock))
+                subblocks[j] = str(integer(subblock, secret))
         blocks[i] = '-'.join(subblocks)
     return ' '.join(blocks)
 
@@ -69,8 +69,8 @@ def decimal(value, secret, size=None):
     else:
         negative = False
     integral, fractional = value.split('.')
-    integral = integer(integral, secret, len(integral))
-    fractional = integer(fractional, secret, len(fractional))
+    integral = str(integer(integral, secret))
+    fractional = str(integer(fractional, secret))
     value = '.'.join([integral, fractional])
     if negative:
         value = '-' + value
@@ -78,7 +78,7 @@ def decimal(value, secret, size=None):
 
 
 def date(value, secret, size=None):
-    value = integer(value.strftime('%d%m%Y'), secret, 8).zfill(8)
+    value = str(integer(value.strftime('%d%m%Y'), secret)).zfill(8)
     day, month, year = (
         int(value[:2]), int(value[2:4]), int(value[4:]))
     if day > 28:
@@ -91,7 +91,7 @@ def date(value, secret, size=None):
 
 
 def time(value, secret, size=None):
-    value = integer(value.strftime('%H%M%S'), secret, 6).zfill(6)
+    value = str(integer(value.strftime('%H%M%S'), secret)).zfill(6)
     hour, minute, second = (
         int(value[:2]), int(value[2:4]), int(value[4:]))
     if hour > 23:

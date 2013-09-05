@@ -47,6 +47,10 @@ class PseudoTests(unittest.TestCase):
         pseudo2 = self.pseudo('bsdf', p, secret='SW')
         assert pseudo1 != pseudo2
 
+    def test_integer(self):
+        from gocept.pseudonymize import integer as p
+        assert 1029 == self.pseudo(4711, p)
+
     def test_email_adresses(self):
         from gocept.pseudonymize import email as p
         assert 'iR@7HKlpUc.de' == self.pseudo('sw@gocept.com', p)
