@@ -5,7 +5,8 @@ Change log for gocept.pseudonymize
 0.2 (unreleased)
 ================
 
-- Nothing changed yet.
+- ``date`` does not return pseudonymized years smaller than `1900` anymore as
+  ``datetime.date`` can not handle years smaller that `1900`.
 
 
 0.1 (2013-09-05)

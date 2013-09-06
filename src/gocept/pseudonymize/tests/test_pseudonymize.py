@@ -85,3 +85,10 @@ class PseudoTests(unittest.TestCase):
         from gocept.pseudonymize import date as p
         from datetime import date
         assert date(9867, 7, 11) == self.pseudo(date(1983, 1, 11), p)
+
+    def test_date_computes_year_greater_than_1900(self):
+        from gocept.pseudonymize import date as p
+        from datetime import date
+        with mock.patch('crypt.crypt') as crypt:
+            crypt.return_value = '11011899'
+            assert date(3799, 1, 1) == self.pseudo(date(1983, 1, 11), p)

@@ -85,6 +85,8 @@ def date(value, secret, size=None):
         day = int(day / 4)
     if month > 12:
         month = int(month / 8)
+    if year < 1900:
+        year = year + 1900
     day = 1 if day == 0 else day
     month = 1 if month == 0 else month
     return datetime.date(year, month, day)
