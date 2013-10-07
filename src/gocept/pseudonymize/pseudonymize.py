@@ -109,6 +109,24 @@ def date(value, secret, size=None):
                          day(value.day, secret))
 
 
+def datestring(value, secret, size=None, format='DD.MM.YYYY'):
+    """Date represended as a string.
+
+    Parts of the date which are 0 are kept zero. (e. g. if the day is '00'
+    it is not pseudonymized)
+
+    """
+    value = list(value)
+    for part, length, func in (('D', 2, day), ('M', 2, month), ('Y', 4, year)):
+        assert format.count(part) == length
+        start_pos = format.find(part)
+        val = value[start_pos:start_pos+length]
+        if val != ['0'] * length:
+            value[start_pos:start_pos+length] = list(
+                str(func(''.join(val), secret)).zfill(length))
+    return ''.join(value)
+
+
 def time(value, secret, size=None):
     value = str(integer(value.strftime('%H%M%S'), secret)).zfill(6)
     hour, minute, second = (

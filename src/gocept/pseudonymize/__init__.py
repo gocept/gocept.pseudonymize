@@ -1,5 +1,6 @@
 from gocept.pseudonymize.pseudonymize import (
     date,
+    datestring,
     day,
     decimal,
     email,

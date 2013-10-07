@@ -76,6 +76,12 @@ possible to guess the correct one by looking at the input data.
     >>> gocept.pseudonymize.date(date(1983, 1, 11), 'secret')
     datetime.date(3021, 1, 18)
 
+* For a date represented as string use the ``datestring`` function. It takes
+  a format string and keeps zeros date parts as zero.::
+
+    >>> gocept.pseudonymize.datestring('00/03/2003', 'secret', format='DD/MM/YYYY')
+    '00/10/7399'
+
 * For a time value use the ``time`` function::
 
     >>> from datetime import time

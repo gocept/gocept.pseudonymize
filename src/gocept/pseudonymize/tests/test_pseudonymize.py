@@ -2,13 +2,14 @@
 # Copyright (c) 2013 gocept gmbh & co. kg
 # See also LICENSE.txt
 import mock
+import pytest
 
 
-def pseudo(value, pseudonymizer, secret=None, length=None):
+def pseudo(value, pseudonymizer, secret=None, length=None, **kw):
     secret = 'ML' if secret is None else secret
     if isinstance(value, str):
         length = len(value) if length is None else length
-    return pseudonymizer(value, secret, length)
+    return pseudonymizer(value, secret, length, **kw)
 
 
 def test_removes_secret_from_pseudonymization_result():
@@ -115,3 +116,21 @@ def test_year_computes_value_greater_than_1900():
     with mock.patch('crypt.crypt') as crypt:
         crypt.return_value = '1899'
         assert 1999 == pseudo(1983, year)
+
+
+def test_datestring():
+    from gocept.pseudonymize import datestring
+    assert '21.03.7110' == pseudo(
+        '03.05.2003', datestring, format='DD.MM.YYYY')
+
+
+def test_datestring_returns_zero_parts_as_zero():
+    from gocept.pseudonymize import datestring
+    assert '00007110' == pseudo('00002003', datestring, format='DDMMYYYY')
+    assert '22100000' == pseudo('20030000', datestring, format='DDMMYYYY')
+
+
+def test_datestring_raises_exception_on_invalid_format():
+    from gocept.pseudonymize import datestring
+    with pytest.raises(AssertionError):
+        pseudo('000020', datestring, format='DDMMYY')
