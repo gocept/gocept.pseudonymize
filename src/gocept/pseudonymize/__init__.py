@@ -1,2 +1,11 @@
 from gocept.pseudonymize.pseudonymize import (
-    text, integer, email, iban, license_tag, phone, decimal, date, time)
+    date,
+    decimal,
+    email,
+    iban,
+    integer,
+    license_tag,
+    phone,
+    text,
+    time,
+    )
