@@ -34,35 +34,35 @@ To pseudonymize integer values, ``gocept.pseudonymize`` provides the
 
     >>> import gocept.pseudonymize
     >>> gocept.pseudonymize.integer(4711, 'secret')
-    1029
+    2111
 
 To pseudonymize email addresses, ``gocept.pseudonymize`` provides the
 ``email`` function::
 
     >>> import gocept.pseudonymize
     >>> gocept.pseudonymize.email('mail@gocept.com', 'secret')
-    'cCSe@7HKlpUc.de'
+    'w6ba@nG7NGno.de'
 
 To pseudonymize IBAN account numbers, ``gocept.pseudonymize`` provides the
 ``iban`` function::
 
     >>> import gocept.pseudonymize
     >>> gocept.pseudonymize.iban('US00123456787650047623', 'secret')
-    'DE11912270187105821216'
+    'DE10312010975100119998'
 
 To pseudonymize license tags, ``gocept.pseudonymize`` provides the
 ``license_tag`` function::
 
     >>> import gocept.pseudonymize
-    >>> gocept.pseudonymize.license('HAL-AB 123', 'secret')
-    'Z1Y-YV 784'
+    >>> gocept.pseudonymize.license_tag('HAL-AB 123', 'secret')
+    'PUD-AM 117'
 
 To pseudonymize license tags, ``gocept.pseudonymize`` provides the
 ``phone`` function::
 
     >>> import gocept.pseudonymize
     >>> gocept.pseudonymize.phone('+49 172 34123142', 'secret')
-    '0511911912178610'
+    '0104118118111676'
 
 To pseudonymize decimals, ``gocept.pseudonymize`` provides the
 ``decimal`` function::
@@ -70,7 +70,7 @@ To pseudonymize decimals, ``gocept.pseudonymize`` provides the
     >>> from decimal import Decimal
     >>> import gocept.pseudonymize
     >>> gocept.pseudonymize.decimal(Decimal('-123.45'), 'secret')
-    Decimal('-8799.11')
+    Decimal('-8772.11')
 
 To pseudonymize a date, ``gocept.pseudonymize`` provides the
 ``date`` function::
@@ -78,7 +78,7 @@ To pseudonymize a date, ``gocept.pseudonymize`` provides the
     >>> from datetime import date
     >>> import gocept.pseudonymize
     >>> gocept.pseudonymize.date(date(1983, 1, 11), 'secret')
-    date(9867, 7, 11)
+    datetime.date(3006, 8, 21)
 
 To pseudonymize a time, ``gocept.pseudonymize`` provides the
 ``time`` function::
@@ -86,4 +86,4 @@ To pseudonymize a time, ``gocept.pseudonymize`` provides the
     >>> from datetime import time
     >>> import gocept.pseudonymize
     >>> gocept.pseudonymize.time(time(23, 59, 59), 'secret')
-    time(11, 46, 49)
+    datetime.time(13, 11, 49)

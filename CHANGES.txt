@@ -5,7 +5,7 @@ Change log for gocept.pseudonymize
 0.3 (unreleased)
 ================
 
-- Nothing changed yet.
+- Fix tests in documentation + testing documentation now.
 
 
 0.2 (2013-09-06)
