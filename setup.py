@@ -15,6 +15,10 @@ def project_path(*names):
     return os.path.join(os.path.dirname(__file__), *names)
 
 
+def read(*names):
+    return open(project_path(*names)).read()
+
+
 setup(
     name='gocept.pseudonymize',
     version='0.3.dev0',
@@ -50,12 +54,12 @@ Programming Language :: Python :: 3
 Programming Language :: Python :: 3.3
 """[:-1].split('\n'),
     description=__doc__.strip(),
-    long_description='\n\n'.join(open(project_path(name)).read() for name in (
-        'README.txt',
-        'HACKING.txt',
-        'CHANGES.txt',
-    )),
-
+    long_description='\n\n'.join([
+        '.. contents::',
+        read('README.txt'),
+        read('HACKING.txt'),
+        read('CHANGES.txt'),
+        ]),
     namespace_packages=['gocept'],
     packages=find_packages('src'),
     package_dir={'': 'src'},
