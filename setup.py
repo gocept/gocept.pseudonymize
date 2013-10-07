@@ -3,7 +3,7 @@
 
 # This should be only one line. If it must be multi-line, indent the second
 # line onwards to keep the PKG-INFO file format intact.
-"""Helper functions to pseudonymize data like text, email addresses or license tags.
+"""Pseudonymize data like text, email addresses or license tags.
 """
 
 from setuptools import setup, find_packages
