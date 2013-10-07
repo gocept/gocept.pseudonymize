@@ -15,75 +15,72 @@ Usage
 
 ``gocept.pseudonymize`` provides single functions for pseudonymization of
 various data types. Each function takes the ``value``, which should be
-pseudonymized, and a ``secret``, which is passed as a ``salt`` to the ``crypt``
-module. The pseudonymize function return the exact same result, if ``secret``
-and ``value`` do not change::
+pseudonymized, and a ``secret``, which is passed as a ``salt`` to the
+``crypt`` module.  If ``secret`` and ``value`` do not change the
+pseudonymize function returns the exact same result when called again::
 
     >>> import gocept.pseudonymize
     >>> gocept.pseudonymize.text('asdf', 'secret')
     'dugD'
+    >>> gocept.pseudonymize.text('asdf', 'secret')
+    'dugD'
+
+The result has always the same string lenth as the input. But there is no
+guaranty that it is still valid in the domain of the input value. For
+example the checksum of the pseudonymized IBAN is not correct.
+
 
 This package is tested to be compatible with Python version 2.7 and 3.3.
 
 
-Detailed Usage Examples
+Detailed usage examples
 =======================
 
-To pseudonymize integer values, ``gocept.pseudonymize`` provides the
-``integer`` function::
+There are different pseudonymization function because it is not always
+possible to guess the correct one by looking at the input data.
 
-    >>> import gocept.pseudonymize
+* For an integer value use the ``integer`` function::
+
     >>> gocept.pseudonymize.integer(4711, 'secret')
     2111
 
-To pseudonymize email addresses, ``gocept.pseudonymize`` provides the
-``email`` function::
-
-    >>> import gocept.pseudonymize
-    >>> gocept.pseudonymize.email('mail@gocept.com', 'secret')
-    'w6ba@nG7NGno.de'
-
-To pseudonymize IBAN account numbers, ``gocept.pseudonymize`` provides the
-``iban`` function::
-
-    >>> import gocept.pseudonymize
-    >>> gocept.pseudonymize.iban('US00123456787650047623', 'secret')
-    'DE10312010975100119998'
-
-To pseudonymize license tags, ``gocept.pseudonymize`` provides the
-``license_tag`` function::
-
-    >>> import gocept.pseudonymize
-    >>> gocept.pseudonymize.license_tag('HAL-AB 123', 'secret')
-    'PUD-AM 117'
-
-To pseudonymize license tags, ``gocept.pseudonymize`` provides the
-``phone`` function::
-
-    >>> import gocept.pseudonymize
-    >>> gocept.pseudonymize.phone('+49 172 34123142', 'secret')
-    '0104118118111676'
-
-To pseudonymize decimals, ``gocept.pseudonymize`` provides the
-``decimal`` function::
+* For a decimal value use the ``decimal`` function::
 
     >>> from decimal import Decimal
-    >>> import gocept.pseudonymize
     >>> gocept.pseudonymize.decimal(Decimal('-123.45'), 'secret')
     Decimal('-8772.11')
 
-To pseudonymize a date, ``gocept.pseudonymize`` provides the
-``date`` function::
+* For an email address use the ``email`` function::
+
+    >>> gocept.pseudonymize.email('mail@gocept.com', 'secret')
+    'w6ba@nG7NGno.de'
+
+* For an IBAN account number use the ``iban`` function::
+
+    >>> gocept.pseudonymize.iban('US00123456787650047623', 'secret')
+    'DE10312010975100119998'
+
+* For a license tag of a car use  the ``license_tag`` function::
+
+    >>> gocept.pseudonymize.license_tag('HAL-AB 123', 'secret')
+    'PUD-AM 117'
+
+* For a phone number use the ``phone`` function::
+
+    >>> gocept.pseudonymize.phone('+49 172 34123142', 'secret')
+    '0104118118111676'
+
+* For a date use the ``date`` function::
 
     >>> from datetime import date
-    >>> import gocept.pseudonymize
     >>> gocept.pseudonymize.date(date(1983, 1, 11), 'secret')
     datetime.date(3006, 8, 21)
 
-To pseudonymize a time, ``gocept.pseudonymize`` provides the
-``time`` function::
+* For a time value use the ``time`` function::
 
     >>> from datetime import time
-    >>> import gocept.pseudonymize
     >>> gocept.pseudonymize.time(time(23, 59, 59), 'secret')
     datetime.time(13, 11, 49)
+
+There are some additional pseudonymizer functions and helper functions in
+this package.
