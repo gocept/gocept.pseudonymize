@@ -1,16 +1,19 @@
 syntax: glob
 
+*.egg-info
+*.pyc
+.coverage
 .installed.cfg
 .mr.developer.cfg
+.tox/
+__pycache__
 bin
 build
+coverage-report/
 develop-eggs
 dist
 doc/_api
 eggs
 local.cfg
 parts
-.coverage
-.tox/
-coverage-report/
 testreport.xml
