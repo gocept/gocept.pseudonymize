@@ -1,3 +1,11 @@
+=============
+Running tests
+=============
+
+The tests are run using tox_. See its documentation for details.
+
+.. _tox : https://pypi.python.org/pypi/tox
+
 ==============================
 Developing gocept.pseudonymize
 ==============================
