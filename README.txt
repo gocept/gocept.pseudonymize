@@ -74,7 +74,7 @@ possible to guess the correct one by looking at the input data.
 
     >>> from datetime import date
     >>> gocept.pseudonymize.date(date(1983, 1, 11), 'secret')
-    datetime.date(3006, 8, 21)
+    datetime.date(3021, 1, 18)
 
 * For a time value use the ``time`` function::
 

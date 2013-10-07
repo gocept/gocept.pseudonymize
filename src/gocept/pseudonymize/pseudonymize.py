@@ -78,19 +78,35 @@ def decimal(value, secret, size=None):
     return Decimal(value)
 
 
-def date(value, secret, size=None):
-    value = str(integer(value.strftime('%d%m%Y'), secret)).zfill(8)
-    day, month, year = (
-        int(value[:2]), int(value[2:4]), int(value[4:]))
+def day(value, secret, size=None):
+    day = integer(value, secret)
     if day > 28:
         day = int(day / 4)
+    if day == 0:
+        day = 1
+    return day
+
+
+def month(value, secret, size=None):
+    month = integer(value, secret)
     if month > 12:
         month = int(month / 8)
+    if month == 0:
+        month = 1
+    return month
+
+
+def year(value, secret, size=None):
+    year = integer(value, secret)
     if year < 1900:
         year = year + 1900
-    day = 1 if day == 0 else day
-    month = 1 if month == 0 else month
-    return datetime.date(year, month, day)
+    return year
+
+
+def date(value, secret, size=None):
+    return datetime.date(year(value.year, secret),
+                         month(value.month, secret),
+                         day(value.day, secret))
 
 
 def time(value, secret, size=None):

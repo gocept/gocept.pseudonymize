@@ -91,12 +91,27 @@ def test_time():
 def test_date():
     from gocept.pseudonymize import date as p
     from datetime import date
-    assert date(9867, 7, 11) == pseudo(date(1983, 1, 11), p)
+    assert date(7676, 1, 25) == pseudo(date(1983, 1, 11), p)
 
 
-def test_date_computes_year_greater_than_1900():
-    from gocept.pseudonymize import date as p
+def test_day():
+    from gocept.pseudonymize import day
+    assert 11 == pseudo(15, day)
+
+
+def test_month():
+    from gocept.pseudonymize import month
+    assert 3 == pseudo(11, month)
+
+
+def test_year():
+    from gocept.pseudonymize import year
+    assert 8699 == pseudo(1976, year)
+
+
+def test_year_computes_value_greater_than_1900():
+    from gocept.pseudonymize import year
     from datetime import date
     with mock.patch('crypt.crypt') as crypt:
-        crypt.return_value = '11011899'
-        assert date(3799, 1, 1) == pseudo(date(1983, 1, 11), p)
+        crypt.return_value = '1899'
+        assert 1999 == pseudo(1983, year)

@@ -7,6 +7,11 @@ Change log for gocept.pseudonymize
 
 - Fix tests in documentation + testing documentation now.
 
+- Add ``.day``, ``.month`` and ``.year`` pseudonymizers.
+
+- **Caution:** Due to changed implementation of ``.date`` function it
+    returns different values than in version 0.2.
+
 
 0.2 (2013-09-06)
 ================
