@@ -47,6 +47,7 @@ def phone(value, secret, size=None):
 
 
 def license_tag(value, secret, size=None):
+    """License tag of a car."""
     blocks = value.split(' ')
     for i, block in enumerate(blocks):
         subblocks = block.split('-')
