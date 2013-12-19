@@ -12,6 +12,11 @@ def pseudo(value, pseudonymizer, secret=None, length=None, **kw):
     return pseudonymizer(value, secret, length, **kw)
 
 
+def test_text_pseudonymization_uses_length_of_input():
+    from gocept.pseudonymize import text
+    assert len('foobar') == len(text('foobar', 'secret'))
+
+
 def test_removes_secret_from_pseudonymization_result():
     from gocept.pseudonymize import text as p
     assert not pseudo('asdf', p).startswith('MT')
