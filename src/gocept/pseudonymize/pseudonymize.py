@@ -7,16 +7,29 @@ import crypt
 import datetime
 
 
+def _pseudonymize(text, secret):
+    """Pseudonymize a `text` using `secret`."""
+    result = []
+    for start in range(0, len(text), 11):
+        # crypt ignores the text after the 11th byte so we have to split the
+        # string into 11 byte blocks
+        block = text[start:start + 11]
+        crypted = crypt.crypt(block, secret)
+        if crypted.startswith('$'):
+            digits, crypted = crypted[1:].split('$')
+            digits = int(digits)
+        else:
+            # Default crypt behaviour: use first 2 digits of salt
+            digits, crypted = (2, crypted)
+        result.append(crypted[digits:])
+    return ''.join(result)
+
+
 def text(value, secret, size=None):
+    result = _pseudonymize(value, secret)
     if size is None:
         size = len(value)
-    result = crypt.crypt(value, secret)
-    if result.startswith('$'):
-        digits, result = result[1:].split('$')
-        digits = int(digits)
-    else:
-        digits, result = (2, result)  # Default crypt behaviour
-    return result[digits:size+digits].replace('/', '.')
+    return result[0:size].replace('/', '.')
 
 
 def integer(value, secret, size=None):

@@ -17,6 +17,19 @@ def test_text_pseudonymization_uses_length_of_input():
     assert len('foobar') == len(text('foobar', 'secret'))
 
 
+def test_text_pseudonymization_uses_length_of_input_even_for_longer_texts():
+    from gocept.pseudonymize import text
+    data = 'Lorem ipsum dolor sit amet, consectetur, adipisci velit, ...'
+    assert len(data) == len(text(data, 'secret'))
+
+
+def test_text_pseudonymization_returns_different_results_for_longer_texts():
+    from gocept.pseudonymize import text
+    data1 = 'Lorem ipsum dolor sit amet, consectetur, adipisci velit, ..1'
+    data2 = 'Lorem ipsum dolor sit amet, consectetur, adipisci velit, ..2'
+    assert text(data1, 'secret') != text(data2, 'secret')
+
+
 def test_removes_secret_from_pseudonymization_result():
     from gocept.pseudonymize import text as p
     assert not pseudo('asdf', p).startswith('MT')

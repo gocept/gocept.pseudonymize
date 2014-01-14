@@ -5,7 +5,10 @@ Change log
 0.4 (unreleased)
 ================
 
-- Nothing changed yet.
+- Bugfix: ``.text`` pseudonymizer now works as expected for texts longer
+  than 11 bytes. Previously it returned an 11 byte result for longer texts
+  ignoring the part after the 11th byte (default behavior of the used
+  ``crypt`` implementation). (#1296)
 
 
 0.3 (2013-10-09)
