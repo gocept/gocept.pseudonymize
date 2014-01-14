@@ -24,7 +24,7 @@ pseudonymize function returns the exact same result when called again::
     >>> gocept.pseudonymize.text('asdf', 'secret')
     'dugD'
 
-The result has always the same string lenth as the input. But there is no
+The result has always the same string length as the input. But there is no
 guaranty that it is still valid in the domain of the input value. For
 example the checksum of the pseudonymized IBAN is not correct.
 
