@@ -32,7 +32,12 @@ def test_text_pseudonymization_returns_different_results_for_longer_texts():
 
 def test_removes_secret_from_pseudonymization_result():
     from gocept.pseudonymize import text as p
-    assert not pseudo('asdf', p).startswith('MT')
+
+    assert not pseudo('asdf', p, secret='MT').startswith('MT')
+
+    assert '34567' not in pseudo('asdfghjkl', p, secret='_1234567890')
+    assert len('asdfghjkl') == len(pseudo('asdfghjkl', p, secret='_1234'))
+
     with mock.patch('crypt.crypt') as crypt:
         crypt.return_value = '$3$FOOpseudonymized'
         assert 'pseudonymized' == pseudo('asdf', p, length=13)

@@ -10,6 +10,11 @@ Change log
   ignoring the part after the 11th byte (default behavior of the used
   ``crypt`` implementation). (#1296)
 
+- Fixed handling of `Extended crypt` (signalled by starting the salt with an
+  underscore): Salt is now correctly stripped from result. **Caution:** This
+  leads to different pseudonymization results when using a secret starting
+  with underscore than in version 0.3.
+
 
 0.3 (2013-10-09)
 ================

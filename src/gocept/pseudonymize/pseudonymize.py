@@ -16,11 +16,15 @@ def _pseudonymize(text, secret):
         block = text[start:start + 11]
         crypted = crypt.crypt(block, secret)
         if crypted.startswith('$'):
+            # Usage of different hash algorithm: digets in $ signs
             digits, crypted = crypted[1:].split('$')
             digits = int(digits)
+        elif secret.startswith('_'):
+            # Behavior of Extended crypt: use up to eight bytes of salt
+            digits = min(len(secret), 8)
         else:
-            # Default crypt behaviour: use first 2 digits of salt
-            digits, crypted = (2, crypted)
+            # Behaviour for Traditional crypt: use first 2 bytes of salt
+            digits = 2
         result.append(crypted[digits:])
     return ''.join(result)
 
