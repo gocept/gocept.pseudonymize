@@ -30,17 +30,25 @@ def test_text_pseudonymization_returns_different_results_for_longer_texts():
     assert text(data1, 'secret') != text(data2, 'secret')
 
 
-def test_removes_secret_from_pseudonymization_result():
-    from gocept.pseudonymize import text as p
-
-    assert not pseudo('asdf', p, secret='MT').startswith('MT')
-
-    assert '34567' not in pseudo('asdfghjkl', p, secret='_1234567890')
-    assert len('asdfghjkl') == len(pseudo('asdfghjkl', p, secret='_1234'))
-
+def test_removes_secret_from_pseudonymization_result_traditional():
+    from gocept.pseudonymize import text
     with mock.patch('crypt.crypt') as crypt:
-        crypt.return_value = '$3$FOOpseudonymized'
-        assert 'pseudonymized' == pseudo('asdf', p, length=13)
+        crypt.return_value = 'STpseudonymized'
+        assert 'pseudonymized' == text('asdf', 'ST', size=13)
+
+
+def test_removes_secret_from_pseudonymization_result_extended():
+    from gocept.pseudonymize import text
+    with mock.patch('crypt.crypt') as crypt:
+        crypt.return_value = '_123SALTpseudonymized'
+        assert 'pseudonymized' == text('asdf', '_123SALT', size=13)
+
+
+def test_removes_secret_from_pseudonymization_result_glibc2():
+    from gocept.pseudonymize import text
+    with mock.patch('crypt.crypt') as crypt:
+        crypt.return_value = '$5$SALT$pseudonymized'
+        assert 'pseudonymized' == text('asdf', '$5$SALT$', size=13)
 
 
 def test_same_result_for_same_value_and_secret():

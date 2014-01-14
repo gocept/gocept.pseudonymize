@@ -16,9 +16,10 @@ def _pseudonymize(text, secret):
         block = text[start:start + 11]
         crypted = crypt.crypt(block, secret)
         if crypted.startswith('$'):
-            # Usage of different hash algorithm: digets in $ signs
-            digits, crypted = crypted[1:].split('$')
-            digits = int(digits)
+            # Usage of glibc2 additional  encryption algorithm, notation is:
+            # $id$salt$encrypted
+            _, _, _, crypted = crypted.split('$')
+            digits = 0
         elif secret.startswith('_'):
             # Behavior of Extended crypt: use up to eight bytes of salt
             digits = min(len(secret), 8)
