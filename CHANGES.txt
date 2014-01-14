@@ -2,8 +2,8 @@
 Change log
 ==========
 
-0.5 (unreleased)
-================
+0.4.1 (2014-01-14)
+==================
 
 - Fix handling of usage of glibc2 supported additional encryption algorithms (
   signalled using $<id>$<salt>$ as salt).
