@@ -143,7 +143,6 @@ def test_year():
 
 def test_year_computes_value_greater_than_1900():
     from gocept.pseudonymize import year
-    from datetime import date
     with mock.patch('crypt.crypt') as crypt:
         crypt.return_value = '1899'
         assert 1999 == pseudo(1983, year)
