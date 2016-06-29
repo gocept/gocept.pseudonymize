@@ -11,6 +11,7 @@ __pycache__
 bin
 build
 coverage-report/
+coverage.xml
 develop-eggs
 dist
 doc/_api
