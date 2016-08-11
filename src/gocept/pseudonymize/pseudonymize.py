@@ -53,7 +53,7 @@ def integer(value, secret, size=None):
 def email(value, secret, size=None):
     local, domain = value.split('@')
     return '%s@%s.de' % (text(local, secret, len(local)),
-                         text(domain, secret, len(domain)-3))
+                         text(domain, secret, len(domain) - 3))
 
 
 def iban(value, secret, size=None):
@@ -61,7 +61,7 @@ def iban(value, secret, size=None):
 
 
 def phone(value, secret, size=None):
-    return '0%s' % integer(value, secret, len(value)-1)
+    return '0%s' % integer(value, secret, len(value) - 1)
 
 
 def license_tag(value, secret, size=None):
@@ -138,9 +138,9 @@ def datestring(value, secret, size=None, format='DD.MM.YYYY'):
     for part, length, func in (('D', 2, day), ('M', 2, month), ('Y', 4, year)):
         assert format.count(part) == length
         start_pos = format.find(part)
-        val = value[start_pos:start_pos+length]
+        val = value[start_pos:start_pos + length]
         if val != ['0'] * length:
-            value[start_pos:start_pos+length] = list(
+            value[start_pos:start_pos + length] = list(
                 str(func(''.join(val), secret)).zfill(length))
     return ''.join(value)
 
@@ -152,7 +152,7 @@ def time(value, secret, size=None):
     if hour > 23:
         hour = int(hour / 5)
     if minute > 59:
-        minute = int(minute/2)
+        minute = int(minute / 2)
     if second > 59:
         second = int(second / 2)
     return datetime.time(hour, minute, second)
