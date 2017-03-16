@@ -51,6 +51,7 @@ Topic :: Software Development :: Libraries :: Python Modules
 Topic :: Text Processing :: Filters
 Topic :: Utilities
 License :: OSI Approved :: MIT License
+Natural Language :: German
 Programming Language :: Python :: 2
 Programming Language :: Python :: 2.7
 Programming Language :: Python :: 3
