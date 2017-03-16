@@ -1,0 +1,16 @@
+include *.rst
+include *.txt
+
+include .coveragerc
+exclude .coveragerc
+
+include pytest.ini
+exclude pytest.ini
+
+include tox.ini
+exclude tox.ini
+
+exclude MANIFEST.in
+exclude .hgignore
+exclude .hgtags
+
