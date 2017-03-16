@@ -7,7 +7,9 @@ Change log
 
 - Claim support for PyPy.
 
-- Officially support Python 3.4 and 3.5.
+- Officially support Python 3.4, 3.5 and 3.6.
+
+- Bring test coverage to 100 % even for code branches.
 
 
 0.4.1 (2014-01-14)

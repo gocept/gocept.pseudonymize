@@ -60,14 +60,13 @@ Programming Language :: Python :: Implementation :: PyPy
     description=__doc__.strip(),
     long_description='\n\n'.join([
         '.. contents::',
-        read('README.txt'),
-        read('HACKING.txt'),
-        read('CHANGES.txt'),
+        read('README.rst'),
+        read('HACKING.rst'),
+        read('CHANGES.rst'),
     ]),
     namespace_packages=['gocept'],
     packages=find_packages('src'),
     package_dir={'': 'src'},
     include_package_data=True,
-    data_files=[('', glob.glob(project_path('*.txt')))],
     zip_safe=False,
 )
