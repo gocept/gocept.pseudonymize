@@ -7,6 +7,8 @@ Change log
 
 - Add ``.street`` pseudonymizer.
 
+- Add ``.bic`` (business identifier code) pseudonymizer.
+
 
 1.0 (2017-03-16)
 ================

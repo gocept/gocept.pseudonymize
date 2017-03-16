@@ -82,6 +82,11 @@ def iban(value, secret, size=None):
     return 'DE%s' % str(integer(value[2:], secret, len(value)))[:20]
 
 
+def bic(value, secret, size=None):
+    """Return something what looks mostly like a BIC."""
+    return text(value, secret, size).upper().replace('.', '0')
+
+
 def phone(value, secret, size=None):
     return '0%s' % integer(value, secret, len(value) - 1)
 

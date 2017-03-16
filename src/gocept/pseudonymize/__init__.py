@@ -1,5 +1,6 @@
 # flake8: NOQA
 from gocept.pseudonymize.pseudonymize import (
+    bic,
     date,
     datestring,
     day,

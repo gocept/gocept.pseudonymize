@@ -127,6 +127,12 @@ def test_pseudonymize__iban__1():
     assert 'DE11912270187105821216' == pseudo('US00123456787650047623', iban)
 
 
+def test_pseudonymize__bic__1():
+    """It returns something what looks like a BIC."""
+    from gocept.pseudonymize import bic
+    assert 'JAJXFPRKNBW' == pseudo('BYLADEM1001', bic)
+
+
 def test_phone_numbers():
     from gocept.pseudonymize import phone as p
     assert '0791067988858' == pseudo('0172 34123142', p)

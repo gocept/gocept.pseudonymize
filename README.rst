@@ -70,6 +70,11 @@ possible to guess the correct one by looking at the input data.
     >>> gocept.pseudonymize.iban('US00123456787650047623', 'secret')
     'DE10312010975100119998'
 
+* For a BIC (Business Identifier Code) use the ``bic`` function::
+
+    >>> gocept.pseudonymize.bic('PBNKDEFFXXX', 'secret')
+    'GTY1BPG8PE2'
+
 * For a license tag of a car use  the ``license_tag`` function::
 
     >>> gocept.pseudonymize.license_tag('HAL-AB 123', 'secret')
