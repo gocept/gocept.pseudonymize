@@ -130,10 +130,11 @@ def test_pseudonymize__bic__1():
     assert 'JAJXFPRKNBW' == pseudo('BYLADEM1001', bic)
 
 
-def test_phone_numbers():
-    from gocept.pseudonymize import phone as p
-    assert '0791067988858' == pseudo('0172 34123142', p)
-    assert '0511911912178610' == pseudo('+49 172 34123142', p)
+def test_pseudonymize__phone__1():
+    """It returns a number starting with `0`."""
+    from gocept.pseudonymize import phone
+    assert '0791067988858' == pseudo('0172 34123142', phone)
+    assert '0511911912178610' == pseudo('+49 172 34123142', phone)
 
 
 def test_license_tags():
