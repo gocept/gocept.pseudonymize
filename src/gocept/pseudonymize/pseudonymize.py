@@ -31,20 +31,20 @@ def _pseudonymize(text, secret):
 
 
 def string(value, secret, size=None):
-    """Pseudonymize as string. Contains [A-Za-z0-9./]."""
+    """Pseudonymize as string. Contains [A-Za-z0-9.]."""
     if not value:
         return value
     result = _pseudonymize(value, secret)
     if size is None:
         size = len(value)
-    return result[0:size]
+    return result[0:size].replace('/', '.')
 
 
 def text(value, secret, size=None):
     """Pseudonymize text. Contains letter, numbers and spaces."""
     if not value:
         return value
-    return string(value, secret, size).replace('/', ' ').replace('.', ' ')
+    return string(value, secret, size).replace('.', ' ')
 
 
 def name(value, secret, size=None):

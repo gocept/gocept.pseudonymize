@@ -21,8 +21,8 @@ Other changes
 - Fix all pseudonymizers: if called with a value which evaluates to `False` the
   value is returned. But ``.integer`` still pseudonymizes `0`.
 
-- Add ``.string`` pseudonymizer returning a string containing numbers, digits,
-  slashes and full stops.
+- Add ``.string`` pseudonymizer returning a string containing numbers, digits
+  and full stops. (This is what ``.text`` formerly did.)
 
 
 1.1 (2017-03-16)
