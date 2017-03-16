@@ -5,6 +5,14 @@ Change log
 0.5 (unreleased)
 ================
 
+New features
+------------
+
+- Add ``.name`` pseudonymizer.
+
+Other changes
+-------------
+
 - Claim support for PyPy.
 
 - Officially support Python 3.4, 3.5 and 3.6.

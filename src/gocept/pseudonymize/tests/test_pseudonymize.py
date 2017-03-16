@@ -79,6 +79,18 @@ def test_different_result_for_different_value_and_different_secret():
     assert pseudo1 != pseudo2
 
 
+def test_pseudonymize__name__1():
+    """It returns pseudonymized text with only first letter a capital one."""
+    from gocept.pseudonymize import name
+    assert 'Zg9knqus4gu' == pseudo('Deutschland', name)
+
+
+def test_pseudonymize__name__2():
+    """It returns an empty string if the value is empty."""
+    from gocept.pseudonymize import name
+    assert '' == pseudo('', name)
+
+
 def test_integer():
     from gocept.pseudonymize import integer as p
     assert 1029 == pseudo(4711, p)

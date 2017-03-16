@@ -37,6 +37,16 @@ def text(value, secret, size=None):
     return result[0:size].replace('/', '.')
 
 
+def name(value, secret, size=None):
+    """A name is a text which has only one capital letter as the first one."""
+    if value:
+        result = text(value, secret, size)
+        result = result[0].upper() + result[1:].lower()
+    else:
+        result = value
+    return result
+
+
 def integer(value, secret, size=None):
     if size is None:
         size = len(str(value))

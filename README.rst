@@ -38,6 +38,11 @@ Detailed usage examples
 There are different pseudonymization function because it is not always
 possible to guess the correct one by looking at the input data.
 
+* For a name use the ``name`` function::
+
+    >>> gocept.pseudonymize.name('Vimladil', 'secret')
+    'R5lprkud'
+
 * For an integer value use the ``integer`` function::
 
     >>> gocept.pseudonymize.integer(4711, 'secret')

@@ -9,6 +9,7 @@ from gocept.pseudonymize.pseudonymize import (
     integer,
     license_tag,
     month,
+    name,
     phone,
     text,
     time,
