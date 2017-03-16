@@ -2,7 +2,7 @@
 Change log
 ==========
 
-1.1 (unreleased)
+1.1 (2017-03-16)
 ================
 
 - Add ``.street`` pseudonymizer.
