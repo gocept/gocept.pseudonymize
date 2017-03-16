@@ -116,9 +116,16 @@ def test_pseudonymize__integer__2():
     assert '' == pseudo('', integer)
 
 
-def test_email_adresses():
-    from gocept.pseudonymize import email as p
-    assert 'iR@7HKlpUc.de' == pseudo('sw@gocept.com', p)
+def test_pseudonymize__email__1():
+    """It returns something what looks like an e-mail address."""
+    from gocept.pseudonymize import email
+    assert 'iR@7HKlpUc.de' == pseudo('sw@gocept.com', email)
+
+
+def test_pseudonymize__email__2():
+    """It returns an empty string if called with an empty string."""
+    from gocept.pseudonymize import email
+    assert '' == pseudo('', email)
 
 
 def test_pseudonymize__iban__1():

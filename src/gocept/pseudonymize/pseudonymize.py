@@ -73,6 +73,9 @@ def integer(value, secret, size=None):
 
 
 def email(value, secret, size=None):
+    """Return something what could be an e-mail address."""
+    if not value:
+        return value
     local, domain = value.split('@')
     return '%s@%s.de' % (text(local, secret, len(local)),
                          text(domain, secret, len(domain) - 3))
