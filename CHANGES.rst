@@ -20,6 +20,8 @@ Other changes
 - Bring test coverage to 100 % even for code branches and enforce it for the
   future.
 
+- Re-license from ZPL to MIT.
+
 
 0.4.1 (2014-01-14)
 ==================

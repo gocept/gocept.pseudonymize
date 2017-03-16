@@ -37,12 +37,12 @@ setup(
 
     author='gocept <mail@gocept.com>',
     author_email='mail@gocept.com',
-    license='ZPL 2.1',
+    license='MIT',
     url='https://bitbucket.org/gocept/gocept.pseudonymize/',
 
     keywords='Pseudonymization',
     classifiers="""\
-License :: OSI Approved :: Zope Public License
+License :: OSI Approved :: MIT License
 Programming Language :: Python :: 2
 Programming Language :: Python :: 2.7
 Programming Language :: Python :: 3
