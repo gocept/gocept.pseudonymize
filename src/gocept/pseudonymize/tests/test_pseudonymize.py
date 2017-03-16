@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (c) 2013 gocept gmbh & co. kg
-# See also LICENSE.txt
+import gocept.pseudonymize
 import mock
 import pytest
 
@@ -10,6 +9,15 @@ def pseudo(value, pseudonymizer, secret=None, length=None, **kw):
     if isinstance(value, str):
         length = len(value) if length is None else length
     return pseudonymizer(value, secret, length, **kw)
+
+
+@pytest.mark.parametrize(
+    'func_name', [
+        x for x in dir(gocept.pseudonymize)
+        if not x.startswith('_') and x not in ('tests', 'pseudonymize')])
+def test_pseudonymize__1(func_name):
+    """It returns an empty string if called with an empty string."""
+    assert '' == pseudo('', getattr(gocept.pseudonymize, func_name))
 
 
 def test_text_pseudonymization_uses_length_of_input():
@@ -85,12 +93,6 @@ def test_pseudonymize__name__1():
     assert 'Zg9knqus4gu' == pseudo('Deutschland', name)
 
 
-def test_pseudonymize__name__2():
-    """It returns an empty string if the value is empty."""
-    from gocept.pseudonymize import name
-    assert '' == pseudo('', name)
-
-
 def test_pseudonymize__street__1():
     """It returns pseudonymized name and number."""
     from gocept.pseudonymize import street
@@ -110,22 +112,10 @@ def test_pseudonymize__integer__1():
     assert 1029 == pseudo(4711, integer)
 
 
-def test_pseudonymize__integer__2():
-    """It returns an empty string if the input is an empty string."""
-    from gocept.pseudonymize import integer
-    assert '' == pseudo('', integer)
-
-
 def test_pseudonymize__email__1():
     """It returns something what looks like an e-mail address."""
     from gocept.pseudonymize import email
     assert 'iR@7HKlpUc.de' == pseudo('sw@gocept.com', email)
-
-
-def test_pseudonymize__email__2():
-    """It returns an empty string if called with an empty string."""
-    from gocept.pseudonymize import email
-    assert '' == pseudo('', email)
 
 
 def test_pseudonymize__iban__1():

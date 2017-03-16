@@ -5,7 +5,7 @@ Change log
 1.2 (unreleased)
 ================
 
-- Fix ``.email`` pseudonymizer to return an empty string if called with one.
+- Fix all pseudonymizers to return an empty string if called with one.
 
 
 1.1 (2017-03-16)

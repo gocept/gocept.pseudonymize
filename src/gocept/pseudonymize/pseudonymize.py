@@ -39,12 +39,10 @@ def text(value, secret, size=None):
 
 def name(value, secret, size=None):
     """A name is a text which has only one capital letter as the first one."""
-    if value:
-        result = text(value, secret, size)
-        result = result[0].upper() + result[1:].lower()
-    else:
-        result = value
-    return result
+    if not value:
+        return value
+    result = text(value, secret, size)
+    return result[0].upper() + result[1:].lower()
 
 
 def street(value, secret, size=None):
@@ -82,6 +80,8 @@ def email(value, secret, size=None):
 
 
 def iban(value, secret, size=None):
+    if not value:
+        return value
     return 'DE%s' % str(integer(value[2:], secret, len(value)))[:20]
 
 
@@ -91,6 +91,8 @@ def bic(value, secret, size=None):
 
 
 def phone(value, secret, size=None):
+    if not value:
+        return value
     return '0%s' % integer(value, secret, len(value) - 1)
 
 
@@ -112,6 +114,8 @@ def license_tag(value, secret, size=None):
 
 
 def decimal(value, secret, size=None):
+    if not value:
+        return value
     value = value.to_eng_string()
     if '-' in value:
         negative = True
@@ -127,6 +131,8 @@ def decimal(value, secret, size=None):
 
 
 def day(value, secret, size=None):
+    if not value:
+        return value
     day = integer(value, secret)
     if day > 28:
         day = int(day / 4)
@@ -136,6 +142,8 @@ def day(value, secret, size=None):
 
 
 def month(value, secret, size=None):
+    if not value:
+        return value
     month = integer(value, secret)
     if month > 12:
         month = int(month / 8)
@@ -145,6 +153,8 @@ def month(value, secret, size=None):
 
 
 def year(value, secret, size=None):
+    if not value:
+        return value
     year = integer(value, secret)
     if year < 1900:
         year = year + 1900
@@ -152,6 +162,8 @@ def year(value, secret, size=None):
 
 
 def date(value, secret, size=None):
+    if not value:
+        return value
     return datetime.date(year(value.year, secret),
                          month(value.month, secret),
                          day(value.day, secret))
@@ -164,6 +176,8 @@ def datestring(value, secret, size=None, format='DD.MM.YYYY'):
     it is not pseudonymized)
 
     """
+    if not value:
+        return value
     value = list(value)
     for part, length, func in (('D', 2, day), ('M', 2, month), ('Y', 4, year)):
         assert format.count(part) == length
@@ -176,6 +190,8 @@ def datestring(value, secret, size=None, format='DD.MM.YYYY'):
 
 
 def time(value, secret, size=None):
+    if not value:
+        return value
     value = str(integer(value.strftime('%H%M%S'), secret)).zfill(6)
     hour, minute, second = (
         int(value[:2]), int(value[2:4]), int(value[4:]))
