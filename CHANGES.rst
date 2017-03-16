@@ -5,7 +5,8 @@ Change log
 1.2 (unreleased)
 ================
 
-- Fix all pseudonymizers to return an empty string if called with one.
+- Fix all pseudonymizers: if called with a value which evaluates to `False` the
+  value is returned. But ``.integer`` still pseudonymizes `0`.
 
 
 1.1 (2017-03-16)

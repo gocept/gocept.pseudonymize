@@ -18,6 +18,7 @@ def pseudo(value, pseudonymizer, secret=None, length=None, **kw):
 def test_pseudonymize__1(func_name):
     """It returns an empty string if called with an empty string."""
     assert '' == pseudo('', getattr(gocept.pseudonymize, func_name))
+    assert None is pseudo(None, getattr(gocept.pseudonymize, func_name))
 
 
 def test_text_pseudonymization_uses_length_of_input():
@@ -110,6 +111,12 @@ def test_pseudonymize__integer__1():
     """It returns an integer of the same lenght."""
     from gocept.pseudonymize import integer
     assert 1029 == pseudo(4711, integer)
+
+
+def test_pseudonymize__integer__2():
+    """It pseudonymizes the value `0`."""
+    from gocept.pseudonymize import integer
+    assert 8 == pseudo(0, integer)
 
 
 def test_pseudonymize__email__1():

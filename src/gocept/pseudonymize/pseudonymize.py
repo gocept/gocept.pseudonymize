@@ -31,6 +31,8 @@ def _pseudonymize(text, secret):
 
 
 def text(value, secret, size=None):
+    if not value:
+        return value
     result = _pseudonymize(value, secret)
     if size is None:
         size = len(value)
@@ -47,6 +49,8 @@ def name(value, secret, size=None):
 
 def street(value, secret, size=None):
     """A street is a name (maybe containing spaces) followed by a number."""
+    if not value:
+        return value
     source_name, sep, source_value = value.rpartition(' ')
     if not source_name:
         source_name = source_value
@@ -56,11 +60,11 @@ def street(value, secret, size=None):
 
 
 def integer(value, secret, size=None):
+    if not value and value != 0:
+        return value
     if size is None:
         size = len(str(value))
     value = text(str(value), secret, size)
-    if not value:
-        return value
     result = ''
     for char in value:
         try:
@@ -87,6 +91,8 @@ def iban(value, secret, size=None):
 
 def bic(value, secret, size=None):
     """Return something what looks mostly like a BIC."""
+    if not value:
+        return value
     return text(value, secret, size).upper().replace('.', '0')
 
 
@@ -98,6 +104,8 @@ def phone(value, secret, size=None):
 
 def license_tag(value, secret, size=None):
     """License tag of a car."""
+    if not value:
+        return value
     blocks = value.split(' ')
     for i, block in enumerate(blocks):
         subblocks = block.split('-')
