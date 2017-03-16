@@ -4,10 +4,7 @@ source = gocept.pseudonymize
 
 [report]
 precision = 2
-omit = */interfaces.py
-       */interfaces/*
-       */tests.py
-       */tests/*
+omit = src/gocept/__init__.py
 
 [html]
 directory = coverage-report

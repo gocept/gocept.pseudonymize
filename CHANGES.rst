@@ -9,7 +9,8 @@ Change log
 
 - Officially support Python 3.4, 3.5 and 3.6.
 
-- Bring test coverage to 100 % even for code branches.
+- Bring test coverage to 100 % even for code branches and enforce it for the
+  future.
 
 
 0.4.1 (2014-01-14)

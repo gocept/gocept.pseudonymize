@@ -114,10 +114,11 @@ def test_decimal():
 
 
 def test_time():
-    from gocept.pseudonymize import time as p
+    from gocept.pseudonymize import time as pseudo_time
     from datetime import time
-    assert time(16, 36, 37) == pseudo(time(12, 34, 56), p)
-    assert time(11, 46, 49) == pseudo(time(23, 59, 59), p)
+    assert time(16, 36, 37) == pseudo(time(12, 34, 56), pseudo_time)
+    assert time(11, 46, 49) == pseudo(time(23, 59, 59), pseudo_time)
+    assert time(17, 10, 21) == pseudo(time(1, 1, 0), pseudo_time)
 
 
 def test_date():
@@ -126,9 +127,16 @@ def test_date():
     assert date(7676, 1, 25) == pseudo(date(1983, 1, 11), p)
 
 
-def test_day():
+def test_pseudonymize__day__1():
+    """It makes sure that the pseudonymized day is not bigger than 28."""
     from gocept.pseudonymize import day
-    assert 11 == pseudo(15, day)
+    assert 19 == pseudo(10, day)
+
+
+def test_pseudonymize__day__2():
+    """It replaces a pseudonymized value of 0 with 1."""
+    from gocept.pseudonymize import day
+    assert 1 == pseudo(6, day, secret='MH')
 
 
 def test_month():
