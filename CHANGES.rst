@@ -14,7 +14,6 @@ Backwards incompatible changes
 
 - ``.email``  now returns its result in all lower case.
 
-
 Other changes
 -------------
 
@@ -23,6 +22,9 @@ Other changes
 
 - Add ``.string`` pseudonymizer returning a string containing numbers, digits
   and full stops. (This is what ``.text`` formerly did.)
+
+- Fix ``.email`` so it does not break on an input value which does not contain
+  an `@` symbol.
 
 
 1.1 (2017-03-16)

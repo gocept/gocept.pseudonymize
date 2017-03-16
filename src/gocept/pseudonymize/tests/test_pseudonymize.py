@@ -127,6 +127,12 @@ def test_pseudonymize__email__1():
     assert 'ir@7hklpuc.de' == pseudo('sw@gocept.com', email)
 
 
+def test_pseudonymize__email__2():
+    """It returns garbage if the input does not contain an `@` symbol."""
+    from gocept.pseudonymize import email
+    assert '1n2grmnobxk.p.de' == pseudo('sw-gocept.com', email)
+
+
 def test_pseudonymize__iban__1():
     """It returns something what looks like an IBAN."""
     from gocept.pseudonymize import iban

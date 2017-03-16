@@ -86,9 +86,10 @@ def email(value, secret, size=None):
     """Return something what could be an e-mail address."""
     if not value:
         return value
-    local, domain = value.split('@')
-    return '%s@%s.de' % (string(local, secret, len(local)).lower(),
-                         string(domain, secret, len(domain) - 3).lower())
+    local, at, domain = value.partition('@')
+    return '%s%s%s.de' % (string(local, secret, len(local)).lower(),
+                          at,
+                          string(domain, secret, len(domain) - 3).lower())
 
 
 def iban(value, secret, size=None):
