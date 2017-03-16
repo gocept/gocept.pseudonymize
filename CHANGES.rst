@@ -8,31 +8,31 @@ Change log
 Backwards incompatible changes
 ------------------------------
 
-- A values pseudonymized by ``.text`` no longer contains full stops, they are
+- A values pseudonymized by ``text()`` no longer contains full stops, they are
   converted to spaces. Thus the pseudonymized values may change since version
   1.1.
 
-- ``.email``  now returns its result in all lower case.
+- ``email()``  now returns its result in all lower case.
 
 Other changes
 -------------
 
 - Fix all pseudonymizers: if called with a value which evaluates to `False` the
-  value is returned. But ``.integer`` still pseudonymizes `0`.
+  value is returned. But ``integer()`` still pseudonymizes `0`.
 
-- Add ``.string`` pseudonymizer returning a string containing numbers, digits
-  and full stops. (This is what ``.text`` formerly did.)
+- Add ``string()`` pseudonymizer returning a string containing numbers, digits
+  and full stops. (This is what ``text()`` formerly did.)
 
-- Fix ``.email`` so it does not break on an input value which does not contain
+- Fix ``email()`` so it does not break on an input value which does not contain
   an `@` symbol.
 
 
 1.1 (2017-03-16)
 ================
 
-- Add ``.street`` pseudonymizer.
+- Add ``street()`` pseudonymizer.
 
-- Add ``.bic`` (business identifier code) pseudonymizer.
+- Add ``bic()`` (business identifier code) pseudonymizer.
 
 
 1.0 (2017-03-16)
@@ -41,7 +41,7 @@ Other changes
 New features
 ------------
 
-- Add ``.name`` pseudonymizer.
+- Add ``name()`` pseudonymizer.
 
 Other changes
 -------------
@@ -66,7 +66,7 @@ Other changes
 0.4 (2014-01-14)
 ================
 
-- Bugfix: ``.text`` pseudonymizer now works as expected for texts longer
+- Bugfix: ``text()`` pseudonymizer now works as expected for texts longer
   than 11 bytes. Previously it returned an 11 byte result for longer texts
   ignoring the part after the 11th byte (default behavior of the used
   ``crypt`` implementation). (#1296)
@@ -84,22 +84,22 @@ Other changes
 
 - Add new pseudonymizers:
 
-  - ``.datestring``
+  - ``datestring()``
 
-  - ``.day``
+  - ``day()``
 
-  - ``.month``
+  - ``month()``
 
-  - ``.year``
+  - ``year()``
 
-- **Caution:** Due to changed implementation of the ``.date`` function it
+- **Caution:** Due to changed implementation of the ``date()`` function it
   returns different values than in version 0.2.
 
 
 0.2 (2013-09-06)
 ================
 
-- ``.date`` does not return pseudonymized years smaller than `1900` anymore as
+- ``date()`` does not return pseudonymized years smaller than `1900` anymore as
   ``datetime.date`` can not handle years smaller that `1900`.
 
 
