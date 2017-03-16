@@ -30,6 +30,8 @@ def test_text_pseudonymization_uses_length_of_input_even_for_longer_texts():
     from gocept.pseudonymize import text
     data = 'Lorem ipsum dolor sit amet, consectetur, adipisci velit, ...'
     assert len(data) == len(text(data, 'secret'))
+    assert ('qDJkMNOo1F 3WpbRcD VnIW9w24N 03hES80hJIs9kGs wNTboQvYTk A9S0' ==
+            text(data, 'secret'))
 
 
 def test_text_pseudonymization_returns_different_results_for_longer_texts():
@@ -122,7 +124,7 @@ def test_pseudonymize__integer__2():
 def test_pseudonymize__email__1():
     """It returns something what looks like an e-mail address."""
     from gocept.pseudonymize import email
-    assert 'iR@7HKlpUc.de' == pseudo('sw@gocept.com', email)
+    assert 'ir@7hklpuc.de' == pseudo('sw@gocept.com', email)
 
 
 def test_pseudonymize__iban__1():

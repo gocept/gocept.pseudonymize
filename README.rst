@@ -19,10 +19,10 @@ pseudonymized, and a ``secret``, which is passed as a ``salt`` to the
 pseudonymize function returns the exact same result when called again::
 
     >>> import gocept.pseudonymize
-    >>> gocept.pseudonymize.text('asdf', 'secret')
-    'dugD'
-    >>> gocept.pseudonymize.text('asdf', 'secret')
-    'dugD'
+    >>> gocept.pseudonymize.text('Here is my little text', 'secret')
+    'u7YJWz RqdYkfNUFgZii2Y'
+    >>> gocept.pseudonymize.text('Here is my little text', 'secret')
+    'u7YJWz RqdYkfNUFgZii2Y'
 
 The result has always the same string length as the input. But there is no
 guaranty that it is still valid in the domain of the input value. For
@@ -63,7 +63,7 @@ possible to guess the correct one by looking at the input data.
 * For an email address use the ``email`` function::
 
     >>> gocept.pseudonymize.email('mail@gocept.com', 'secret')
-    'w6ba@nG7NGno.de'
+    'w6ba@ng7ngno.de'
 
 * For an IBAN account number use the ``iban`` function::
 

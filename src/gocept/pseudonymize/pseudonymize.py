@@ -30,13 +30,21 @@ def _pseudonymize(text, secret):
     return ''.join(result)
 
 
-def text(value, secret, size=None):
+def string(value, secret, size=None):
+    """Pseudonymize as string. Contains [A-Za-z0-9./]."""
     if not value:
         return value
     result = _pseudonymize(value, secret)
     if size is None:
         size = len(value)
-    return result[0:size].replace('/', '.')
+    return result[0:size]
+
+
+def text(value, secret, size=None):
+    """Pseudonymize text. Contains letter, numbers and spaces."""
+    if not value:
+        return value
+    return string(value, secret, size).replace('/', ' ').replace('.', ' ')
 
 
 def name(value, secret, size=None):
@@ -64,7 +72,7 @@ def integer(value, secret, size=None):
         return value
     if size is None:
         size = len(str(value))
-    value = text(str(value), secret, size)
+    value = string(str(value), secret, size)
     result = ''
     for char in value:
         try:
@@ -79,8 +87,8 @@ def email(value, secret, size=None):
     if not value:
         return value
     local, domain = value.split('@')
-    return '%s@%s.de' % (text(local, secret, len(local)),
-                         text(domain, secret, len(domain) - 3))
+    return '%s@%s.de' % (string(local, secret, len(local)).lower(),
+                         string(domain, secret, len(domain) - 3).lower())
 
 
 def iban(value, secret, size=None):
@@ -93,7 +101,7 @@ def bic(value, secret, size=None):
     """Return something what looks mostly like a BIC."""
     if not value:
         return value
-    return text(value, secret, size).upper().replace('.', '0')
+    return string(value, secret, size).upper().replace('/', '0')
 
 
 def phone(value, secret, size=None):

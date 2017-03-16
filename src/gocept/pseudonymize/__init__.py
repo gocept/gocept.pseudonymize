@@ -13,6 +13,7 @@ from gocept.pseudonymize.pseudonymize import (
     name,
     phone,
     street,
+    string,
     text,
     time,
     year,

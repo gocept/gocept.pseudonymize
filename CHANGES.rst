@@ -2,11 +2,27 @@
 Change log
 ==========
 
-1.2 (unreleased)
+2.0 (unreleased)
 ================
+
+Backwards incompatible changes
+------------------------------
+
+- A values pseudonymized by ``.text`` no longer contains full stops, they are
+  converted to spaces. Thus the pseudonymized values may change since version
+  1.1.
+
+- ``.email``  now returns its result in all lower case.
+
+
+Other changes
+-------------
 
 - Fix all pseudonymizers: if called with a value which evaluates to `False` the
   value is returned. But ``.integer`` still pseudonymizes `0`.
+
+- Add ``.string`` pseudonymizer returning a string containing numbers, digits,
+  slashes and full stops.
 
 
 1.1 (2017-03-16)
