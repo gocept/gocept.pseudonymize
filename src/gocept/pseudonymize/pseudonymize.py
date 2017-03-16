@@ -47,10 +47,22 @@ def name(value, secret, size=None):
     return result
 
 
+def street(value, secret, size=None):
+    """A street is a name (maybe containing spaces) followed by a number."""
+    source_name, sep, source_value = value.rpartition(' ')
+    if not source_name:
+        source_name = source_value
+        source_value = ''
+    return sep.join(
+        [name(source_name, secret), str(integer(source_value, secret))])
+
+
 def integer(value, secret, size=None):
     if size is None:
         size = len(str(value))
     value = text(str(value), secret, size)
+    if not value:
+        return value
     result = ''
     for char in value:
         try:

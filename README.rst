@@ -43,6 +43,12 @@ possible to guess the correct one by looking at the input data.
     >>> gocept.pseudonymize.name('Vimladil', 'secret')
     'R5lprkud'
 
+* For an address consisting of street and house number use the ``street``
+  function::
+
+    >>> gocept.pseudonymize.street('Testweg 34a', 'secret')
+    'Kui1xre 723'
+
 * For an integer value use the ``integer`` function::
 
     >>> gocept.pseudonymize.integer(4711, 'secret')

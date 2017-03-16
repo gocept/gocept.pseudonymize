@@ -11,6 +11,7 @@ from gocept.pseudonymize.pseudonymize import (
     month,
     name,
     phone,
+    street,
     text,
     time,
     year,

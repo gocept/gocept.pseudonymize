@@ -91,9 +91,29 @@ def test_pseudonymize__name__2():
     assert '' == pseudo('', name)
 
 
-def test_integer():
-    from gocept.pseudonymize import integer as p
-    assert 1029 == pseudo(4711, p)
+def test_pseudonymize__street__1():
+    """It returns pseudonymized name and number."""
+    from gocept.pseudonymize import street
+    assert 'Tgixm4xn0u 657' == pseudo('Oberer Weg 34b', street)
+
+
+def test_pseudonymize__street__2():
+    """It omits a not existing number."""
+    from gocept.pseudonymize import street
+    assert ('Jaktrnwswyqr7wk92tsjum2abw' ==
+            pseudo('Karl-Friedrich-Fischer-Weg', street))
+
+
+def test_pseudonymize__integer__1():
+    """It returns an integer of the same lenght."""
+    from gocept.pseudonymize import integer
+    assert 1029 == pseudo(4711, integer)
+
+
+def test_pseudonymize__integer__2():
+    """It returns an empty string if the input is an empty string."""
+    from gocept.pseudonymize import integer
+    assert '' == pseudo('', integer)
 
 
 def test_email_adresses():
