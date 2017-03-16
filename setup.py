@@ -1,4 +1,4 @@
-# Copyright (c) 2013-2015 gocept gmbh & co. kg
+# Copyright (c) 2013-2017 gocept gmbh & co. kg
 # See also LICENSE.txt
 
 # This should be only one line. If it must be multi-line, indent the second
@@ -7,16 +7,12 @@
 """
 
 from setuptools import setup, find_packages
-import glob
-import os.path
 
 
-def project_path(*names):
-    return os.path.join(os.path.dirname(__file__), *names)
-
-
-def read(*names):
-    return open(project_path(*names)).read()
+def read(name):
+    """Read a file."""
+    with open(name) as f:
+        return f.read()
 
 
 setup(
@@ -47,7 +43,6 @@ setup(
     keywords='Pseudonymization',
     classifiers="""\
 License :: OSI Approved :: Zope Public License
-Programming Language :: Python
 Programming Language :: Python :: 2
 Programming Language :: Python :: 2.7
 Programming Language :: Python :: 3
