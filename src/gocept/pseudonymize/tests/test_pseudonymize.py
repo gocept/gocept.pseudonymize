@@ -121,10 +121,10 @@ def test_email_adresses():
     assert 'iR@7HKlpUc.de' == pseudo('sw@gocept.com', p)
 
 
-def test_ibans():
-    from gocept.pseudonymize import iban as p
-    assert 'DE11912270187105821216' == pseudo(
-        'US00123456787650047623', p)
+def test_pseudonymize__iban__1():
+    """It returns something what looks like an IBAN."""
+    from gocept.pseudonymize import iban
+    assert 'DE11912270187105821216' == pseudo('US00123456787650047623', iban)
 
 
 def test_phone_numbers():
