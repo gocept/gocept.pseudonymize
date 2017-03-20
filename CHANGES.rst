@@ -8,20 +8,23 @@ Change log
 Backwards incompatible changes
 ------------------------------
 
-- A values pseudonymized by ``text()`` no longer contains full stops, they are
+- A value pseudonymized by ``text()`` no longer contains full stops, they are
   converted to spaces. Thus the pseudonymized values may change since version
-  1.1.
+  1.1. (``string()`` now has the former behavior of ``text()``, see below.)
 
 - ``email()``  now returns its result in all lower case.
 
-Other changes
--------------
-
-- Fix all pseudonymizers: if called with a value which evaluates to `False` the
-  value is returned. But ``integer()`` still pseudonymizes `0`.
+Features
+--------
 
 - Add ``string()`` pseudonymizer returning a string containing numbers, digits
   and full stops. (This is what ``text()`` formerly did.)
+
+Bug fixes
+---------
+
+- Fix all pseudonymizers: if called with a value which evaluates to `False` the
+  value is returned. But ``integer()`` still pseudonymizes `0`.
 
 - Fix ``email()`` so it does not break on an input value which does not contain
   an `@` symbol.
