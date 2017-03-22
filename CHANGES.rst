@@ -5,7 +5,8 @@ Change log
 2.1 (unreleased)
 ================
 
-- Nothing changed yet.
+- Fix ``phone()`` so it does not break if the input is only one character long.
+  (https://bitbucket.org/gocept/gocept.pseudonymize/issues/1)
 
 
 2.0 (2017-03-20)

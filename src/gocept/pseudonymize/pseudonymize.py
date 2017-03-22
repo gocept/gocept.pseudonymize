@@ -108,7 +108,7 @@ def bic(value, secret, size=None):
 def phone(value, secret, size=None):
     if not value:
         return value
-    return '0%s' % integer(value, secret, len(value) - 1)
+    return ('0%s' % integer(value, secret, size))[:-1]
 
 
 def license_tag(value, secret, size=None):

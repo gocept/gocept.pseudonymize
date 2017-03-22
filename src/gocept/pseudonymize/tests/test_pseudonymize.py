@@ -152,6 +152,13 @@ def test_pseudonymize__phone__1():
     assert '0511911912178610' == pseudo('+49 172 34123142', phone)
 
 
+def test_pseudonymize__phone__2():
+    """It does not break if the input is very short."""
+    from gocept.pseudonymize import phone
+    assert '0' == pseudo('1', phone)
+    assert '06' == pseudo('99', phone)
+
+
 def test_license_tags():
     from gocept.pseudonymize import license_tag as p
     assert 'Z1Y-YV 784' == pseudo('HAL-AB 123', p)
