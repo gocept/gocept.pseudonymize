@@ -2,10 +2,12 @@
 Change log
 ==========
 
-2.1 (unreleased)
+3.0 (unreleased)
 ================
 
-- Nothing changed yet.
+- Add support for Python 3.7.
+
+- Drop support for Python 3.3 and 3.4.
 
 
 2.0.1 (2017-03-22)
