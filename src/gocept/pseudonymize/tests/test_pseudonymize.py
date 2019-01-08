@@ -1,7 +1,14 @@
 # -*- coding: utf-8 -*-
+import doctest
 import gocept.pseudonymize
 import mock
 import pytest
+
+
+def test_suite():
+    """Test doctest as unittest."""
+    # This should help with https://github.com/pytest-dev/pytest/issues/1862
+    return doctest.DocFileSuite('../../../../README.rst')
 
 
 def pseudo(value, pseudonymizer, secret=None, length=None, **kw):
