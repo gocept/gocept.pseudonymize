@@ -9,6 +9,8 @@ Change log
 
 - Drop support for Python 3.3 and 3.4.
 
+- Migrate to Github.
+
 
 2.0.1 (2017-03-22)
 ==================

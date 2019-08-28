@@ -20,10 +20,10 @@ Developing gocept.pseudonymize
     http://pypi.python.org/pypi/gocept.pseudonymize/
 
 :Issues:
-    https://bitbucket.org/gocept/gocept.pseudonymize/issues
+    https://github.com/gocept/gocept.pseudonymize/issues
 
 :Source code:
-    https://bitbucket.org/gocept/gocept.pseudonymize/
+    https://github.com/gocept/gocept.pseudonymize
 
 :Current change log:
-    https://bitbucket.org/gocept/gocept.pseudonymize/raw/tip/CHANGES.txt
+    https://raw.githubusercontent.com/gocept/gocept.pseudonymize/master/CHANGES.rst

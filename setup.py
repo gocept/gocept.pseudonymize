@@ -38,7 +38,7 @@ setup(
     author='gocept <mail@gocept.com>',
     author_email='mail@gocept.com',
     license='MIT',
-    url='https://bitbucket.org/gocept/gocept.pseudonymize/',
+    url='https://github.com/gocept/gocept.pseudonymize',
 
     keywords='Pseudonymization',
     classifiers="""\
