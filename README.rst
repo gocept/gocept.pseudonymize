@@ -2,6 +2,19 @@
 gocept.pseudonymize
 ===================
 
+.. image:: https://img.shields.io/pypi/v/gocept.pseudonymize.svg
+    :target: https://pypi.org/project/gocept.pseudonymize/
+
+.. image:: https://img.shields.io/pypi/pyversions/gocept.pseudonymize.svg
+    :target: https://pypi.org/project/gocept.pseudonymize/
+
+.. image:: https://travis-ci.com/gocept/gocept.pseudonymize.svg?branch=master
+    :target: https://travis-ci.com/gocept/gocept.pseudonymize
+
+.. image:: https://coveralls.io/repos/github/gocept/gocept.pseudonymize/badge.svg?branch=master
+    :target: https://coveralls.io/github/gocept/gocept.pseudonymize?branch=master
+
+
 This package provides helper functions to pseudonymize data like text,
 integers, email addresses or license tags.
 
