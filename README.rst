@@ -8,8 +8,8 @@ gocept.pseudonymize
 .. image:: https://img.shields.io/pypi/pyversions/gocept.pseudonymize.svg
     :target: https://pypi.org/project/gocept.pseudonymize/
 
-.. image:: https://travis-ci.com/gocept/gocept.pseudonymize.svg?branch=master
-    :target: https://travis-ci.com/gocept/gocept.pseudonymize
+.. image:: https://github.com/gocept/gocept.pseudonymize/workflows/tests/badge.svg
+    :target: https://github.com/gocept/gocept.pseudonymize/actions?query=workflow%3Atests
 
 .. image:: https://coveralls.io/repos/github/gocept/gocept.pseudonymize/badge.svg?branch=master
     :target: https://coveralls.io/github/gocept/gocept.pseudonymize?branch=master

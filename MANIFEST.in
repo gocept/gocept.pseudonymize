@@ -11,6 +11,3 @@ include tox.ini
 exclude tox.ini
 
 exclude MANIFEST.in
-exclude .hgignore
-exclude .hgtags
-
