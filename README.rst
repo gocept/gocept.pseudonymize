@@ -8,8 +8,8 @@ gocept.pseudonymize
 .. image:: https://img.shields.io/pypi/pyversions/gocept.pseudonymize.svg
     :target: https://pypi.org/project/gocept.pseudonymize/
 
-.. image:: https://travis-ci.com/gocept/gocept.pseudonymize.svg?branch=master
-    :target: https://travis-ci.com/gocept/gocept.pseudonymize
+.. image:: https://github.com/gocept/gocept.pseudonymize/workflows/tests/badge.svg
+    :target: https://github.com/gocept/gocept.pseudonymize/actions?query=workflow%3Atests
 
 .. image:: https://coveralls.io/repos/github/gocept/gocept.pseudonymize/badge.svg?branch=master
     :target: https://coveralls.io/github/gocept/gocept.pseudonymize?branch=master
@@ -42,7 +42,7 @@ guaranty that it is still valid in the domain of the input value. For
 example the checksum of the pseudonymized IBAN is not correct.
 
 
-This package is tested to be compatible with Python version 2.7, 3.5 up to 3.8 and also with PyPy and PyPy3.
+This package is tested to be compatible with Python version 2.7, 3.5 up to 3.8.
 
 
 Detailed usage examples
