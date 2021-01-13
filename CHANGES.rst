@@ -9,6 +9,9 @@ Change log
 
 - Drop support for Python 3.3 and 3.4.
 
+- Drop support for PyPy implementation. The ``crypt`` module is currently not
+  working with PyPy3.
+
 - Migrate to GitHub.
 
 - Use GitHub actions as CI.
