@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import doctest
 import gocept.pseudonymize
 import mock
@@ -179,16 +178,16 @@ def test_decimal():
 
 
 def test_time():
-    from gocept.pseudonymize import time as pseudo_time
     from datetime import time
+    from gocept.pseudonymize import time as pseudo_time
     assert time(16, 36, 37) == pseudo(time(12, 34, 56), pseudo_time)
     assert time(11, 46, 49) == pseudo(time(23, 59, 59), pseudo_time)
     assert time(17, 10, 21) == pseudo(time(1, 1, 0), pseudo_time)
 
 
 def test_date():
-    from gocept.pseudonymize import date as p
     from datetime import date
+    from gocept.pseudonymize import date as p
     assert date(7676, 1, 25) == pseudo(date(1983, 1, 11), p)
 
 
