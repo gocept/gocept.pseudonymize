@@ -5,6 +5,10 @@ Change log
 3.0 (unreleased)
 ================
 
+- Add support for Python 3.9, 3.10, 3.11.
+
+- Drop support for Python 3.5, 3.6.
+
 - Add support for Python 3.7 and 3.8.
 
 - Drop support for Python 3.3 and 3.4.

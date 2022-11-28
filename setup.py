@@ -1,4 +1,4 @@
-# Copyright (c) 2013-2017 gocept gmbh & co. kg
+# Copyright (c) 2013-2022 gocept gmbh & co. kg
 # See also LICENSE.txt
 
 # This should be only one line. If it must be multi-line, indent the second
@@ -42,26 +42,27 @@ setup(
     url='https://github.com/gocept/gocept.pseudonymize',
 
     keywords='Pseudonymization',
-    classifiers="""\
-Development Status :: 5 - Production/Stable
-Intended Audience :: Developers
-Intended Audience :: System Administrators
-Operating System :: OS Independent
-Topic :: Security :: Cryptography
-Topic :: Software Development :: Libraries :: Python Modules
-Topic :: Text Processing :: Filters
-Topic :: Utilities
-License :: OSI Approved :: MIT License
-Natural Language :: German
-Programming Language :: Python :: 2
-Programming Language :: Python :: 2.7
-Programming Language :: Python :: 3
-Programming Language :: Python :: 3.5
-Programming Language :: Python :: 3.6
-Programming Language :: Python :: 3.7
-Programming Language :: Python :: 3.8
-Programming Language :: Python :: Implementation :: CPython
-"""[:-1].split('\n'),
+    classifiers=[
+        'Development Status :: 5 - Production/Stable',
+        'Intended Audience :: Developers',
+        'Intended Audience :: System Administrators',
+        'Operating System :: OS Independent',
+        'Topic :: Security :: Cryptography',
+        'Topic :: Software Development :: Libraries :: Python Modules',
+        'Topic :: Text Processing :: Filters',
+        'Topic :: Utilities',
+        'License :: OSI Approved :: MIT License',
+        'Natural Language :: German',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: Implementation :: CPython',
+    ],
     description=__doc__.strip(),
     long_description='\n\n'.join([
         '.. contents::',
