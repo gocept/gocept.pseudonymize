@@ -5,22 +5,12 @@ Change log
 3.0 (unreleased)
 ================
 
-- Drop support for Python 2.7, 3.5, 3.6.
+- Drop support for Python 2.7, 3.3, 3.4, 3.5, 3.6.
 
-- Add support for Python 3.9, 3.10, 3.11.
-
-- Drop support for Python 3.5, 3.6.
-
-- Add support for Python 3.7 and 3.8.
-
-- Drop support for Python 3.3 and 3.4.
+- Add support for Python 3.7, 3.8, 3.9, 3.10, 3.11.
 
 - Drop support for PyPy implementation. The ``crypt`` module is currently not
   working with PyPy3.
-
-- Migrate to GitHub.
-
-- Use GitHub actions as CI.
 
 
 2.0.1 (2017-03-22)
