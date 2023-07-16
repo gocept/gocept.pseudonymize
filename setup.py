@@ -1,4 +1,4 @@
-# Copyright (c) 2013-2022 gocept gmbh & co. kg
+# Copyright (c) 2013-2023 gocept gmbh & co. kg
 # See also LICENSE.txt
 
 # This should be only one line. If it must be multi-line, indent the second
@@ -19,7 +19,7 @@ def read(name):
 setup(
     name='gocept.pseudonymize',
     version='3.0.dev0',
-
+    python_requires='>=3.7',
     install_requires=[
         'setuptools',
     ],
@@ -53,8 +53,6 @@ setup(
         'Topic :: Utilities',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: German',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',

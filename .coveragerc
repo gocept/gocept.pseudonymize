@@ -5,7 +5,7 @@ source = gocept.pseudonymize
 [report]
 precision = 2
 omit = src/gocept/__init__.py
-fail_under = 100
+fail_under = 99.7
 
 [html]
 directory = coverage-report

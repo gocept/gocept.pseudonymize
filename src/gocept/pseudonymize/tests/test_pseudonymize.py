@@ -1,6 +1,6 @@
+from unittest import mock
 import doctest
 import gocept.pseudonymize
-import mock
 import pytest
 
 
