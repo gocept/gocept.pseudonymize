@@ -18,7 +18,7 @@ def read(name):
 
 setup(
     name='gocept.pseudonymize',
-    version='3.0',
+    version='3.1.dev0',
     python_requires='>=3.7',
     install_requires=[
         'setuptools',
